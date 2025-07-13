@@ -80,11 +80,10 @@
     };
 };
 
-// Future auto mouse layer configuration
-// Note: Current PAW3222 driver does not support these properties
-// &trackball {
-//     automouse-layer = <5>;
-//     scroll-layers = <4>;
-//     movement-timeout-ms = <600>;
-//     movement-threshold = <2>;
-// };
+// Auto mouse layer configuration - testing with user's driver
+&trackball {
+    automouse-layer = <5>;
+    scroll-layers = <4>;
+    movement-timeout-ms = <600>;
+    movement-threshold = <100>;
+};

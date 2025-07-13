@@ -15,7 +15,7 @@
         #input-processor-cells = <0>;
         type = <INPUT_EV_REL>;
         codes = <INPUT_REL_X INPUT_REL_Y>;
-        maps = <INPUT_REL_HWHEEL INPUT_REL_WHEEL>;
+        map = <INPUT_REL_HWHEEL INPUT_REL_WHEEL>;
     };
 
     default_transform: keymap_transform_0 {

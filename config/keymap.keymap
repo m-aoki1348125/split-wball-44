@@ -4,6 +4,17 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
+    behaviors {
+        mo_to: mo_to {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&to>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -13,7 +24,7 @@
 				&none &none &none &none &none &none &none &none &none &none &none
 				&none &none &none &none &none &none &none &none &none &none &none
 				&none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				&none &none &mo_to 5 4 &none
             >;
         };
 

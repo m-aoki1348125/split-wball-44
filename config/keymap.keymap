@@ -48,7 +48,6 @@
         };
 
         scroll_layer {
-            label = "SCROLL";
             bindings =<
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans
 				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
@@ -59,7 +58,6 @@
         };
 
         auto_mouse_layer {
-            label = "MOUSE";
             bindings =<
                 &trans &trans &trans &trans &trans &mkp LCLK &mkp RCLK &mkp MCLK &trans
 				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans

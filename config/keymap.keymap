@@ -48,22 +48,24 @@
         };
 
         scroll_layer {
+            label = "SCROLL";
             bindings =<
-                &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans &trans &trans &trans
             >;
         };
 
         auto_mouse_layer {
+            label = "MOUSE";
             bindings =<
-                &none &none &none &none &none &mkp LCLK &mkp RCLK &mkp MCLK &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+                &trans &trans &trans &trans &trans &mkp LCLK &mkp RCLK &mkp MCLK &trans
+				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans &trans &trans &trans
             >;
         };
     };

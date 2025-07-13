@@ -1,0 +1,14 @@
+
+file_format: "1"
+id: split_wball
+name: split_wball
+type: shield
+features:
+  - keys
+  - studio
+outputs:
+  - usb
+  - ble
+siblings:
+  - split_wball_left
+  - split_wball_right

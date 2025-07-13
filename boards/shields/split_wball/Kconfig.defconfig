@@ -1,0 +1,14 @@
+
+if SHIELD_SPLIT_WBALL_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "split_wball"
+
+endif
+
+if SHIELD_SPLIT_WBALL_LEFT || SHIELD_SPLIT_WBALL_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

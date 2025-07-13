@@ -2,15 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: sekigon-gonnoc
-      url-base: https://github.com/sekigon-gonnoc
+    - name: m-aoki1348125
+      url-base: https://github.com/m-aoki1348125
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
     - name: zmk-driver-paw3222
-      remote: sekigon-gonnoc
+      remote: m-aoki1348125
       revision: main
   self:
     path: config

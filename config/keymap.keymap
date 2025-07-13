@@ -74,14 +74,16 @@
 				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 				&trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans &trans &trans &trans
+				&trans &trans &to 0 &trans
             >;
         };
     };
 };
 
-// Basic auto mouse layer configuration
+// Enhanced auto mouse layer configuration
 &trackball {
     automouse-layer = <5>;
     scroll-layers = <4>;
+    // movement-timeout-ms = <600>;
+    // movement-threshold = <2>;
 };

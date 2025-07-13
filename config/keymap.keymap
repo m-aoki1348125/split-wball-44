@@ -1,89 +1,149 @@
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
     behaviors {
-        mo_to: mo_to {
+        // Layer-tap behavior for efficient layer access
+        ltp: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            bindings = <&mo>, <&to>;
+            bindings = <&mo>, <&kp>;
+        };
+        
+        // Mod-tap behavior for modifiers
+        mtp: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        
+        // Tab combo on Q+W
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp TAB>;
+        };
+        
+        // Enter combo on ;+'
+        combo_enter {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp ENTER>;
+        };
+        
+        // Backspace combo on O+P
+        combo_bspc {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp BSPC>;
+        };
+        
+        // Escape combo on 1+2
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        layer_0 {
-            bindings =<
-                &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none
-				&none &none &mo_to 5 4 &none
+        // Base layer (QWERTY)
+        default_layer {
+            bindings = <
+                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9
+                &kp Q       &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P
+                &kp A       &kp S       &kp D       &kp F       &kp G       &kp H       &kp J       &kp K       &kp L       &kp SEMI
+                &mtp LSHFT Z &kp X      &kp C       &kp V       &kp B       &kp N       &kp M       &kp COMMA   &mtp RSHFT DOT
+                &mtp LCTRL ESC &ltp 1 SPACE &ltp 5 TAB &mtp RALT ENTER
             >;
         };
 
-        layer_1 {
-            bindings =<
-                &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+        // Function layer (F-keys and numbers)
+        function_layer {
+            bindings = <
+                &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9
+                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT   &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR
+                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+                &trans      &trans      &trans      &trans      &trans      &kp MINUS   &kp EQUAL   &kp LBKT    &kp RBKT
+                &trans      &trans      &mo 2       &kp BSPC
             >;
         };
 
-        layer_2 {
-            bindings =<
-                &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+        // Symbol layer
+        symbol_layer {
+            bindings = <
+                &kp F10     &kp F11     &kp F12     &trans      &trans      &trans      &trans      &trans      &trans
+                &kp TILDE   &kp GRAVE   &kp PIPE    &kp BSLH    &trans      &trans      &trans      &trans      &kp QUOT    &kp DQT
+                &kp UNDER   &kp PLUS    &kp LBRC    &kp RBRC    &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp COLON
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &kp LT      &kp GT
+                &trans      &mo 1       &trans      &kp DEL
             >;
         };
 
-        layer_3 {
-            bindings =<
-                &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+        // Navigation layer
+        nav_layer {
+            bindings = <
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &trans
+                &trans      &trans      &trans      &trans      &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans
             >;
         };
 
+        // Scroll layer (activated by trackball)
         scroll_layer {
-            bindings =<
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans &trans &trans &trans
+            bindings = <
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &mo 6       &trans
             >;
         };
 
+        // Auto mouse layer (activated by trackball movement)
         auto_mouse_layer {
-            bindings =<
-                &trans &trans &trans &trans &trans &mkp LCLK &mkp RCLK &mkp MCLK &trans
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans &trans &to 0 &trans
+            bindings = <
+                &trans      &trans      &trans      &trans      &trans      &mkp LCLK   &mkp RCLK   &mkp MCLK   &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &to 0       &trans
+            >;
+        };
+
+        // System/Bluetooth layer
+        system_layer {
+            bindings = <
+                &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans    &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans
             >;
         };
     };
 };
 
-// Auto mouse layer configuration - testing with user's driver
+// Auto mouse layer configuration
 &trackball {
-    automouse-layer = <5>;
-    scroll-layers = <4>;
-    movement-timeout-ms = <600>;
-    movement-threshold = <100>;
+    automouse-layer = <5>;      // Layer 5 for auto mouse
+    scroll-layers = <4>;        // Layer 4 for scroll mode
+    movement-timeout-ms = <600>; // 600ms timeout
+    movement-threshold = <100>;  // Threshold for activation
 };

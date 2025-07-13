@@ -68,3 +68,9 @@
         };
     };
 };
+
+// Basic auto mouse layer configuration
+&trackball {
+    automouse-layer = <5>;
+    scroll-layers = <4>;
+};

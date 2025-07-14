@@ -3,6 +3,8 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/bt.h>
 
+// PAW3222 driver with PMW3610 equivalent smart algorithm implementation
+
 / {
     behaviors {
         // Layer-tap behavior for efficient layer access

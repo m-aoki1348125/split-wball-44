@@ -4,6 +4,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 // PAW3222 driver with PMW3610 equivalent smart algorithm implementation
+// Fixed unterminated #if error and conditional compilation issues
+// Ready for build testing with updated driver
 
 / {
     behaviors {

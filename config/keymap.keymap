@@ -124,8 +124,8 @@
         auto_mouse_layer {
             bindings = <
                 &trans      &trans      &trans      &trans      &trans      &mkp LCLK   &mkp RCLK   &mkp MCLK   &trans
-                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
-                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &mkp MB4    &mkp MB5    &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &kp LSHFT   &kp LCTRL   &kp LALT    &kp LGUI    &trans
                 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &to 0       &trans
             >;
@@ -144,10 +144,10 @@
     };
 };
 
-// Auto mouse layer configuration
+// Auto mouse layer configuration - PMW3610 equivalent settings
 &trackball {
-    automouse-layer = <5>;      // Layer 5 for auto mouse
-    scroll-layers = <4>;        // Layer 4 for scroll mode
-    movement-timeout-ms = <600>; // 600ms timeout
-    movement-threshold = <100>;  // Threshold for activation
+    automouse-layer = <5>;       // Layer 5 for auto mouse
+    scroll-layers = <4>;         // Layer 4 for scroll mode  
+    movement-timeout-ms = <600>;  // 600ms timeout before returning to base layer
+    movement-threshold = <0>;     // Any movement triggers auto mouse (PMW3610 style)
 };

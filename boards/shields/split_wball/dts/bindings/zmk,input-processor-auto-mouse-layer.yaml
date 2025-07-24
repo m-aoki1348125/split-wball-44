@@ -1,0 +1,35 @@
+description: |
+  An input processor that automatically activates a specific layer when pointing device 
+  movement exceeds a threshold, and deactivates it after a timeout period.
+
+compatible: "zmk,input-processor-auto-mouse-layer"
+
+include: input-processor.yaml
+
+properties:
+  layer:
+    type: int
+    required: true
+    description: |
+      The layer index to activate when movement threshold is exceeded.
+
+  timeout-ms:
+    type: int
+    default: 600
+    description: |
+      Timeout in milliseconds before automatically returning to the original layer.
+      Set to 0 to disable timeout (manual deactivation only).
+
+  movement-threshold:
+    type: int
+    default: 100
+    description: |
+      Total accumulated movement required to trigger layer activation.
+      This is the sum of absolute values of X and Y movements.
+
+  require-motion:
+    type: boolean
+    default: true
+    description: |
+      Whether to require motion events to activate the layer.
+      If false, any input event can trigger activation.

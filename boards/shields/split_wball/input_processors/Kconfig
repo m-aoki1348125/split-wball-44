@@ -1,0 +1,12 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config ZMK_INPUT_PROCESSOR_AUTO_MOUSE_LAYER
+	bool "Auto Mouse Layer Input Processor"
+	depends on ZMK_LAYERS
+	default y
+	help
+	  Enable auto mouse layer input processor that automatically 
+	  activates a specified layer when pointing device movement 
+	  exceeds a configured threshold, and deactivates it after 
+	  a timeout period.

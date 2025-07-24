@@ -4,6 +4,31 @@ if SHIELD_SPLIT_WBALL_LEFT
 config ZMK_KEYBOARD_NAME
     default "split_wball"
 
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+config ZMK_INPUT_PROCESSOR_AUTO_MOUSE_LAYER
+    default y
+
+config ZMK_BEHAVIOR_AUTO_MOUSE
+    default y
+
+endif
+
+if SHIELD_SPLIT_WBALL_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Split WBall"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_INPUT_PROCESSOR_AUTO_MOUSE_LAYER
+    default y
+
+config ZMK_BEHAVIOR_AUTO_MOUSE
+    default y
+
 endif
 
 if SHIELD_SPLIT_WBALL_LEFT || SHIELD_SPLIT_WBALL_RIGHT

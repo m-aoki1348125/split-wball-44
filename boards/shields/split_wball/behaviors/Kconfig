@@ -1,0 +1,10 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config ZMK_BEHAVIOR_AUTO_MOUSE
+	bool "Auto Mouse Behavior"
+	depends on ZMK_LAYERS
+	default y
+	help
+	  Enable auto mouse behavior that provides manual control and 
+	  API for automatic layer switching for mouse functionality.
